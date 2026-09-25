@@ -18,8 +18,10 @@ Apple silicon, and Windows without uploading or transmitting any file data.
   - download from here: https://www.python.org/downloads/
 - macOS or Windows
 
-## Run
+## Installation
 
+- download the ZIP file
+- unzip the ZIP file
 - copy the XML-to-CSV.app to your Mac´s PROGRAM folder
 - double-click the app icon
 

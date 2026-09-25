@@ -12,7 +12,7 @@ from tkinter import filedialog, messagebox, ttk
 from typing import Dict, Iterable, List, Sequence
 import xml.etree.ElementTree as ET
 
-APP_VERSION = "0.2.0"
+APP_VERSION = "1.0.0"
 
 
 def local_name(tag: str) -> str:

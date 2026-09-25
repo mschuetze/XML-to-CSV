@@ -12,6 +12,8 @@ from tkinter import filedialog, messagebox, ttk
 from typing import Dict, Iterable, List, Sequence
 import xml.etree.ElementTree as ET
 
+APP_VERSION = "0.2.0"
+
 
 def local_name(tag: str) -> str:
     """Remove an XML namespace from a tag name."""
@@ -89,7 +91,7 @@ def convert_xml(source: Path) -> Path:
             if key not in fieldnames:
                 fieldnames.append(key)
 
-    destination = source.with_suffix(".csv")
+    destination = source.with_name(f"{source.stem}_UTF-16.csv")
     with destination.open("w", encoding="utf-16", newline="") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
@@ -104,7 +106,7 @@ def format_error(source: Path, error: Exception) -> str:
 class ConverterApp:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("XML to CSV")
+        self.root.title(f"XML to CSV v{APP_VERSION}")
         self.root.geometry("620x390")
         self.root.minsize(520, 320)
         self.root.protocol("WM_DELETE_WINDOW", self.root.destroy)
@@ -115,6 +117,7 @@ class ConverterApp:
         self.details.pack(fill="both", expand=True, padx=20, pady=(20, 10))
         ttk.Progressbar(root, variable=self.progress, maximum=1).pack(fill="x", padx=20)
         ttk.Label(root, textvariable=self.status).pack(anchor="w", padx=20, pady=(8, 14))
+        self.write_details(f"XML to CSV v{APP_VERSION}\n")
 
         root.after(150, self.choose_files)
 

@@ -25,6 +25,17 @@ Apple silicon, and Windows without uploading or transmitting any file data.
 - copy the XML-to-CSV.app to your Mac´s PROGRAM folder
 - double-click the app icon
 
+## How to use the tool
+
+1. Open the XML-to-CSV app.
+2. When the file picker opens, choose one or more XML files from your computer.
+3. The app converts each selected XML file into a CSV file in the same folder as the original file.
+4. The new file name follows this pattern: `filename_UTF-16.csv`.
+5. If conversion works, a success message appears in the app. If a file is unreadable or malformed, the app skips that file and reports the problem.
+6. Open the generated CSV in Excel, Numbers, or another spreadsheet app to review the converted data.
+
+Tip: For best results, select XML files that contain a repeated record pattern, such as multiple items under a common parent element. The tool detects repeated child groups automatically and writes them into columns.
+
 ## Windows?
 
 The Windows app is created at `dist\XML-to-CSV.exe`. PyInstaller builds for the
